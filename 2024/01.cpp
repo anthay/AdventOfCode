@@ -43,6 +43,8 @@ int main()
     for (const int left : left_list) {
         while (iright < iright_end && left > right_list[iright])
             ++iright;
+        if (iright == iright_end)
+            break;
         const int iright_start = iright;
         while (iright < iright_end && left == right_list[iright])
             ++iright;
