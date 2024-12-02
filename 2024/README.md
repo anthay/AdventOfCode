@@ -7,7 +7,7 @@ clang++ -std=c++20 -pedantic -o 01 01.cpp
 
 ### Execution time
 
-Approximate time in miliseconds to execute both parts of each puzzle on a 2022 iMac M1.
+Approximate time in miliseconds to execute both parts of each puzzle on a 2021 iMac M1.
 
 ```text
 
