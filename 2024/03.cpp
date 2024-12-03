@@ -89,7 +89,7 @@ void solve(const std::string & input_text, unsigned & part1_sum, unsigned & part
     };
 
     const char * c = input_text.c_str();
-    const char * c_end = c + input_text.size();
+    const char * const c_end = c + input_text.size();
     while (c != c_end) {
         unsigned product = 0;
         const unsigned mul_length = read_mul(c, c_end, product);
@@ -103,7 +103,6 @@ void solve(const std::string & input_text, unsigned & part1_sum, unsigned & part
 
     // part 2
     c = input_text.c_str();
-    c_end = c + input_text.size();
     while (c != c_end) {
         if (match_here(c, c_end, "don't()")) {
             c += 7;
