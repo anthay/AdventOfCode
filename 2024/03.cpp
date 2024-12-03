@@ -23,7 +23,7 @@ void solve(const std::string & input_text, unsigned & part1_sum, unsigned & part
     auto words_end = std::sregex_iterator();
     for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
         std::smatch match = *i;
-        part1_sum += std::atoi(match[1].str().c_str()) * std::atoi(match[2].str().c_str());
+        part1_sum += std::stoi(match[1]) * std::stoi(match[2]);
     }
 
     // part 2
@@ -38,7 +38,7 @@ void solve(const std::string & input_text, unsigned & part1_sum, unsigned & part
         else if (match[0] == "don't()")
             enabled = false;
         else if (enabled)
-            part2_sum += std::atoi(match[1].str().c_str()) * std::atoi(match[2].str().c_str());
+            part2_sum += std::stoi(match[1]) * std::stoi(match[2]);
     }
 #else
     // part 1
