@@ -9,23 +9,12 @@
 #include <chrono>
 
 
-int main()
+void solve(const std::vector<std::vector<int>> & reports, int & total_safe_reports, int & total_safe_reports_with_dampener)
 {
-    std::vector<std::vector<int>> reports;
-    std::ifstream input("input02.txt");
-    if (!input.is_open())
-        return EXIT_FAILURE;
-    for (std::string report_text; std::getline(input, report_text); ) {
-        std::vector<int> report;
-        std::istringstream report_stream(report_text);
-        for (int level; report_stream >> level; )
-            report.push_back(level);
-        reports.push_back(report);
-    }
-
-    const auto start_time = std::chrono::high_resolution_clock::now();
+    total_safe_reports = total_safe_reports_with_dampener = 0;
 
     // part 1
+
     auto safe_report = [](const std::vector<int> & report) -> bool {
         // (assume all reports have at least two levels)
         const bool increasing = report[1] > report[0];
@@ -36,14 +25,12 @@ int main()
         }
         return true;
     };
-    int total_safe_reports = 0;
     for (const auto & report : reports)
         if (safe_report(report))
             ++total_safe_reports;
 
 
     // part 2
-    int total_safe_reports_with_dampener = 0;
 
 #ifdef USE_COPY_ERASE
     for (const auto & report : reports)
@@ -85,11 +72,36 @@ int main()
             ++total_safe_reports_with_dampener;
 #endif
 
+}
+
+
+int main()
+{
+    std::vector<std::vector<int>> reports;
+    std::ifstream input("input02.txt");
+    if (!input.is_open())
+        return EXIT_FAILURE;
+    for (std::string report_text; std::getline(input, report_text); ) {
+        std::vector<int> report;
+        std::istringstream report_stream(report_text);
+        for (int level; report_stream >> level; )
+            report.push_back(level);
+        reports.push_back(report);
+    }
+
+    const auto start_time = std::chrono::high_resolution_clock::now();
+
+    int total_safe_reports = 0;
+    int total_safe_reports_with_dampener = 0;
+    const int repetitions = 1000;
+    for (int i = 0; i < repetitions; ++i)
+        solve(reports, total_safe_reports, total_safe_reports_with_dampener);
+
     const std::chrono::duration<double, std::milli> ms = std::chrono::high_resolution_clock::now() - start_time;
 
     std::cout << total_safe_reports << '\n';
     assert(total_safe_reports == 502);
     std::cout << total_safe_reports_with_dampener << '\n';
     assert(total_safe_reports_with_dampener == 544);
-    std::cout << ms.count() << "ms\n";
+    std::cout << ms.count() / repetitions << "ms\n";
 }
