@@ -142,7 +142,7 @@ int main()
     unsigned part1_sum = 0;
     unsigned part2_sum = 0;
 
-    const int repetitions = 20;
+    const int repetitions = 1000;
     for (int i = 0; i < repetitions; ++i)
         solve(input_text, part1_sum, part2_sum);
 
