@@ -11,7 +11,8 @@ Approximate time in miliseconds to execute both parts of each puzzle on a 2021 i
 
 ```text
 
-01     0.2 ms
-02     0.5 ms
-03     0.6 ms
+01     0.09 ms
+02     0.19 ms
+03     0.23 ms
+04     1.82 ms
 ```
