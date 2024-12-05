@@ -29,14 +29,14 @@ void solve(const input_data & input, unsigned & part1_result, unsigned & part2_r
         return false;
     };
     
-    for (const auto update : input.updates)
+    for (const auto & update : input.updates)
         if (std::is_sorted(update.begin(), update.end(), must_preceed))
             part1_result += update[update.size() / 2];
 
 
     // part 2
 
-    for (const auto update : input.updates) {
+    for (const auto & update : input.updates) {
         if (!std::is_sorted(update.begin(), update.end(), must_preceed)) {
             std::vector<unsigned> u{update};
             std::stable_sort(u.begin(), u.end(), must_preceed);
