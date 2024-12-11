@@ -16,6 +16,7 @@
 constexpr char off_the_map = 0;
 
 struct input_data {
+    // map is the puzzle input surrounded by off_the_map sentinels
     std::vector<char> map;
     int map_width;
     int start_at;
