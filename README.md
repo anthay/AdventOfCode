@@ -19,7 +19,10 @@ I chose doesn't work so well for part two, so it has to be changed and part one 
 Once I have the correct answer to both parts I look at the code again to see if there
 are some simple optimisations that will improve the performance. Often there are.
 Sometimes something strikes me and I realise there is a much simpler way to solve it.
-(I don't always have the interest or patience to spend much time on optimisation.)
+
+Sometimes the hack that produced an answer for part 1 is too inefficient to work for
+part 2 and I'm forced to think again. It's enjoyable to create something that works
+efficiently and looks elegant. I don't always achieve this, and sometimes I don't try.
 
 I remember reading one AoC puzzle that said something like "it's 25 milliseconds to
 midnight on December 24 so just enough time to solve all 25 puzzles." So I have it in my
